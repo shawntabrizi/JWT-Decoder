@@ -5,19 +5,30 @@
     <title>JWT Decoder</title>
     <meta name="description" content="A basic client-side JWT decoder written in JavaScript">
     <meta name="author" content="Shawn Tabrizi">
-
     <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
-    <form>
-        <input id="input" type="text" />
-    </form>
-    <h2 id="message"></h2>
-    <div id="header">Header</div>
-    <div id="payload">Payload</div>
-    <div id="signature">Signature</div>
-
+    <div class="header">
+        <h1>JWT Decoder</h1>
+    </div>
+    <div class="body">
+        <textarea id="input"></textarea>
+        <h3 id="message"></h3>
+        <div class="content">
+            <h4>Header</h4>
+            <div id="header" class="token"></div>
+            <br />
+            <h4>Payload</h4>
+            <div id="payload" class="token"></div>
+            <br />
+            <h4>Signature</h4>
+            <div id="signature" class="token"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <span>Created by Shawn Tabrizi  -  July 2017  -  Source on <a href="https://github.com/shawntabrizi/JWT-Decoder-Javascript">GitHub</a></span>
+    </div>
     <script src="jwtdecoder.js"></script>
 </body>
 </html>
