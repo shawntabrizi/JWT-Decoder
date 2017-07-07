@@ -33,7 +33,7 @@ function jwtdecode(jwt_token) {
             message = "Signed Token"
             Header = decoder(tokens[0])
             Payload = decoder(tokens[1])
-            if (tokens[2].length > 1) {
+            if (tokens[2].length > 0) {
                 Signature = "[Signed Token]"
             } else {
                 Signature = "[Unsigned Token]"
