@@ -29,20 +29,17 @@ function jwtdecode(jwt_token) {
         //Header, Payload, and Signature
         //Each of these parts are base-64-url encoded strings with the JSON data
         var tokens = jwt_token.split(".")
-        if (tokens.length > 3) {
-            message = "Token has too many sections!"
-        } else if (tokens.length == 3) {
+        if (tokens.length == 3) {
             message = "Signed Token"
             Header = decoder(tokens[0])
             Payload = decoder(tokens[1])
-            Signature = "[Signature]"
-        } else if (tokens.length == 2) {
-            message = "Unsigned Token"
-            Header = decoder(tokens[0])
-            Payload = decoder(tokens[1])
-            Signature = "[None]"
+            if (tokens[2].length > 1) {
+                Signature = "[Signed Token]"
+            } else {
+                Signature = "[Unsigned Token]"
+            }
         } else {
-            message = "Bad Token. Make sure your token has at least 2 sections."
+            message = "JWT tokens must have 3 sections, even without a signature."
         }
     }
     div_header.innerHTML = Header
